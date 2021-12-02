@@ -4,10 +4,10 @@ BEGIN {
 
 #	Get timestamps for after/before. Set default if no value given.
 	if (after=="") {
-	    after="00:00"
+		after="00:00"
 	}
 	if (before=="") {
-	    before="23:59"
+		before="23:59"
 	}
 
 #	Put valid severity levels in an array.
@@ -17,13 +17,19 @@ BEGIN {
 	allArr["WARN"] = "WARN";
 
 #	Put level to include in output in includeArr. Default is ERROR.
+	if (level == "ANY") {
+		for (var in allArr) includeArr[var] = "";
+		excludeArr["DUMMY"] = "";
+	}
+	else {
+	    
+		if (level == "") level = "ERROR"
+  		if (level in allArr) 
+		    includeArr[level] = level;
+		else
+		    print "Unknown level ",level;
+	}
 
-	if (level == "") level = "ERROR"
-  	if (level in allArr) 
-	    includeArr[level] = level;
-	else
-	    print "Unknown level ",level;
-	
 	for (i in allArr) {
 	    if (i in includeArr) {
 		;
