@@ -7,9 +7,12 @@ List errors from IB web log
 Print lines from the log only for selected severity level and between given timestamps in the log.
 
 Parameters 
+----------
+Parameters must be preceded by -v. E.g -v after=10:30
+
 Narrow the search for records between timestamps                                                          
-- after=08:00         Default value 00:00
-- before=12:30:22     Default value 23:59
+- -v after=08:00         Default value 00:00
+- -v before=12:30:22     Default value 23:59
 
 The times can be of any length. The script compares the timestamps in the file with the length of the provided timestamp.
 
