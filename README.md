@@ -16,11 +16,11 @@ The times can be of any length. The script compares the timestamps in the file w
 Severity level to display
 -v level=x
 where x can be 
-ERROR
-WARN
-INFO
-DEBUG
-ANY  (all of the above)
+- ERROR
+- WARN
+- INFO
+- DEBUG
+- ANY  (all of the above)
 
 
 
@@ -28,14 +28,17 @@ Usage:
    Add alias logdigger or logfilter in .bash_aliases
   `alias logdigger='awk -f ~/logdigger.awk'`
 
-   Use without timestamps
+   Use without parameters. Default is ERROR records for all timestamps.
 >  logdigger 'input web log file'
 
-   Use with both after and before
->  logdigger -v after=08:00 -v before=11:00 /mnt/c/temp/1/w1/web-2021-11-30.txt
+   Select with after and before
+>  logdigger -v after=08:00 -v before=11:00 /mnt/c/temp/web.txt
+   
+   Select WARN records before 10:30
+>  logdigger -v level=WARN -v before=11:00 /mnt/c/temp/web.txt
+
 
 Future additions:
-- Possibility to set severity level to log (default logging is for ERROR, add e.g. WARN)
 - Possibility to not check severity level (if you want to check all levels between two timestamps)
 - Add statistics summary in the END section
  
