@@ -4,7 +4,7 @@
 
 List errors from IB web log
 
-Print lines where field 3 is provided severity level (default ERROR).
+Print lines from the log only for selected severity level and between given timestamps in the log.
 
 Parameters 
 Narrow the search for records between timestamps                                                          
