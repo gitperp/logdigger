@@ -17,6 +17,8 @@ BEGIN {
 	allArr["WARN"] = "WARN";
 
 #	Put level to include in output in includeArr. Default is ERROR.
+
+#	Level=ANY, put all levels in includeArr and a dummy in excludeArr
 	if (level == "ANY") {
 		for (var in allArr) includeArr[var] = "";
 		excludeArr["DUMMY"] = "";
