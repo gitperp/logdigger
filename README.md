@@ -53,17 +53,13 @@ Example output:
 `-----------`  
 ` Debug:            6`  
 ` Info:             0`  
-` Warn:             2`
+` Warn:             2`  
 ` Error:            2`  
    
-` Selected hits`
-> 
-> Debug:            0
-> 
-> Info:             0
-> 
-> Warn:             0
-> 
-> Error:            2   
-> 
-> 
+` Selected hits`  
+' Debug:            0`  
+' Info:             0`  
+' Warn:             0`  
+' Error:            2`    
+
+
