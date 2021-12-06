@@ -6,8 +6,8 @@ List filtered entries from IB web log
 
 Print lines from the log only for selected severity level and between given timestamps in the log.
 
-Parameters 
-----------
+## Parameters 
+
 Parameters must be preceded by -v. E.g -v after=10:30
 
 Narrow the search for records between timestamps                                                          
@@ -27,7 +27,8 @@ where x can be
 
 
 
-Usage:
+## Usage
+
    Add alias logdigger or logfilter in .bash_aliases
   `alias logdigger='awk -f ~/logdigger.awk'`
 
@@ -40,8 +41,7 @@ Usage:
    Select WARN records before 10:30
 >  logdigger level=WARN  before=11:00 /mnt/c/temp/web.txt
 
-Statistics
-----------
+## Statistics
 
 At the end a statistics summary is printed.  
 The section "Total hits" displays statistics for the entire file.
@@ -50,8 +50,6 @@ The section "Selected hits" displays statistics for records that match the selec
 Example output:
 
 > Total hits
-> 
-> ----------
 > 
 > Debug:            6
 > 
@@ -63,9 +61,13 @@ Example output:
 > 
 > 
 > Selected hits
-> -------------
+> 
 > Debug:            0
+> 
 > Info:             0
+> 
 > Warn:             0
+> 
 > Error:            2   
+> 
 > 
