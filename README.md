@@ -33,13 +33,13 @@ where x can be
   `alias logdigger='awk -f ~/logdigger.awk'`
 
    Use without parameters. Default is ERROR records for all timestamps.
->  logdigger 'input web log file'
+   `logdigger 'input web log file'`
 
    Select with after and before from the log file /mnt/c/temp/web.txt
->  logdigger after=08:00 before=11:00 /mnt/c/temp/web.txt
+   `logdigger after=08:00 before=11:00 /mnt/c/temp/web.txt`
    
    Select WARN records before 10:30
->  logdigger level=WARN  before=11:00 /mnt/c/temp/web.txt
+   `logdigger level=WARN  before=11:00 /mnt/c/temp/web.txt`
 
 ## Statistics
 
@@ -49,17 +49,19 @@ The section "Selected hits" displays statistics for records that match the selec
 
 Example output:
 
-> Total hits
-> 
-> Debug:            6
-> 
-> Info:             0
-> 
-> Warn:             2
-> 
-> Error:            2
-> 
-> 
+` Total hits
+
+`-----------`
+
+` Debug:            6`
+
+` Info:             0`
+
+` Warn:             2`
+
+` Error:            2`
+
+ 
 > Selected hits
 > 
 > Debug:            0
