@@ -40,6 +40,8 @@ Usage:
    Select WARN records before 10:30
 >  logdigger level=WARN  before=11:00 /mnt/c/temp/web.txt
 
+Statistics
+----------
 
 At the end a statistics summary is printed.  
 The section "Total hits" displays statistics for the entire file.
@@ -48,11 +50,17 @@ The section "Selected hits" displays statistics for records that match the selec
 Example output:
 
 > Total hits
+> 
 > ----------
+> 
 > Debug:            6
+> 
 > Info:             0
+> 
 > Warn:             2
+> 
 > Error:            2
+> 
 > 
 > Selected hits
 > -------------
