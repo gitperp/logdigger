@@ -49,20 +49,14 @@ The section "Selected hits" displays statistics for records that match the selec
 
 Example output:
 
-` Total hits
-
-`-----------`
-
-` Debug:            6`
-
-` Info:             0`
-
+` Total hits`  
+`-----------`  
+` Debug:            6`  
+` Info:             0`  
 ` Warn:             2`
-
-` Error:            2`
-
- 
-> Selected hits
+` Error:            2`  
+   
+` Selected hits`
 > 
 > Debug:            0
 > 
