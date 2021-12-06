@@ -2,7 +2,7 @@
 # Log Digger
 
 
-List errors from IB web log
+List filtered entries from IB web log
 
 Print lines from the log only for selected severity level and between given timestamps in the log.
 
@@ -11,8 +11,8 @@ Parameters
 Parameters must be preceded by -v. E.g -v after=10:30
 
 Narrow the search for records between timestamps                                                          
-- -v after=08:00         Default value 00:00
-- -v before=12:30:22     Default value 23:59
+- -v after=08:00         Default value 00:00. Timestamps equal to and greater than 'after'.
+- -v before=12:30:22     Default value 24:00. Timestamps less than 'before'.
 
 The times can be of any length. The script compares the timestamps in the file with the length of the provided timestamp.
 
@@ -41,9 +41,23 @@ Usage:
 >  logdigger level=WARN  before=11:00 /mnt/c/temp/web.txt
 
 
-Future additions:
-- Possibility to not check severity level (if you want to check all levels between two timestamps)
-- Add statistics summary in the END section
- 
+At the end a statistics summary is printed.  
+The section "Total hits" displays statistics for the entire file.
+The section "Selected hits" displays statistics for records that match the selection (level, after, before).
 
- 
+Example output:
+
+> Total hits
+> ----------
+> Debug:            6
+> Info:             0
+> Warn:             2
+> Error:            2
+> 
+> Selected hits
+> -------------
+> Debug:            0
+> Info:             0
+> Warn:             0
+> Error:            2   
+> 
