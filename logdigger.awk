@@ -19,7 +19,48 @@ function doInclude(severity, timestamp, includeArr) {
 function isSectionStart (str) {
 	return str ~ "^[0-9]{1,4}-[0-1][0-2]-[0-3][0-9] [0-9]{2}:[0-9]{2}"  
 }
+function addToCounter(severity) {
+	switch (severity) {
+		case "ERROR": selectedError++;
+			break
+		case "WARN": selectedWarn++;
+			break
+		case "DEBUG": selectedDebug++;
+			break
+		case "INFO": selectedInfo++;
+			break
+	}
+	return;
+}
+
+function printSummary(){
+	printf("Total hits\n");
+	printf("----------\n");
+	printf("Debug:   %10s\n", totalDebug);
+	printf("Info:    %10s\n", totalInfo);
+	printf("Warn:    %10s\n", totalWarn);
+	printf("Error:   %10s\n", totalError);
+
+	printf("\n");
+	printf("Selected hits\n");
+	printf("-------------\n");
+	printf("Debug:   %10s\n", selectedDebug);
+	printf("Info:    %10s\n", selectedInfo);
+	printf("Warn:    %10s\n", selectedWarn);
+	printf("Error:   %10s\n", selectedError);
+}
 BEGIN {
+
+	totalDebug = 0;
+	totalInfo = 0;
+	totalWarn = 0;
+	totalError = 0;
+	
+	selectedDebug = 0;
+	selectedInfo = 0;
+	selectedWarn = 0;
+	selectedError = 0;
+
 
 #	Get timestamps for after/before. Set default if no value given.
 	if (after=="") {
@@ -51,7 +92,12 @@ BEGIN {
 	}
 }
 #{print isSectionStart($0), doInclude($3, $2, includeArr), $0}
+($3 == "DEBUG") {totalDebug++1}
+($3 == "INFO") {totalInfo++1}
+($3 == "WARN") {totalWarn++1}
+($3 == "ERROR") {totalError++1}
 (isSectionStart($0) && !(doInclude($3, $2, includeArr)))  {printDataLine=0; next; }
-(isSectionStart($0) && doInclude($3, $2,includeArr)) {printDataLine=1; print getColour($3), $0, "\033[0m"; next;} 
+(isSectionStart($0) && doInclude($3, $2,includeArr)) {addToCounter($3); printDataLine=1; print getColour($3), $0, "\033[0m"; next;} 
 (!(isSectionStart($0)) && printDataLine) { print $0; next; }
 
+END {printSummary()}
