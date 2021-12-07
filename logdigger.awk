@@ -14,7 +14,7 @@ function getColour(severity) {
 	}
 }
 function doInclude(severity, timestamp, includeArr) {
-	return severity in includeArr && substr(timestamp,1,length(after)) >= after && substr(timestamp,1,length(before)) <= before
+	return severity in includeArr && substr(timestamp,1,length(after)) >= after && substr(timestamp,1,length(before)) < before
 	}
 function isSectionStart (str) {
 	return str ~ "^[0-9]{1,4}-[0-1][0-2]-[0-3][0-9] [0-9]{2}:[0-9]{2}"  
@@ -67,7 +67,7 @@ BEGIN {
 		after="00:00"
 	}
 	if (before=="") {
-		before="23:59"
+		before="24:00"
 	}
 
 #	Put valid severity levels in an array.
